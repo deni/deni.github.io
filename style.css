@@ -1,0 +1,84 @@
+body {
+  margin: 0px 0px;
+  margin-bottom: 96px;
+}
+
+#hero{
+  background-image: url("https://scontent-arn2-1.xx.fbcdn.net/t31.0-8/459340_498558830193923_1560553294_o.jpg");
+  background-size: cover;
+  position: relative;
+  height: 100vh;
+}
+
+.header{
+  margin-left: 15%;
+  margin-right: 15%;
+
+  font-family: 'Courier New', Courier, sans-serif;
+  font-weight: normal;
+}
+
+#name {
+  position: absolute;
+  top: 50%;
+  width: 65%;
+  color: #fff;
+  font-size: 36px;
+  -ms-transform: translate(0,-50%); /* IE 9 */
+    -webkit-transform: translate(0,-50%); /* Safari */
+    transform: translate(0,-50%);
+}
+
+.info {
+  position: absolute;
+  top: 90%;
+  /* text-align: center; */
+  width: 65%;
+  color: #fff;
+  font-size: 24px;
+  -ms-transform: translate(0,-50%); /* IE 9 */
+    -webkit-transform: translate(0,-50%); /* Safari */
+    transform: translate(0,-50%);
+
+  white-space: pre;
+}
+
+#phone {
+  text-align: left;
+}
+
+#mail {
+  text-align: right;
+}
+
+#content {
+  margin-left: 10%;
+  margin-right: 10%;
+
+  /* VÆLG ANDEN FONT */
+  font-family: 'Courier New', Courier, sans-serif;
+  font-weight: normal;
+}
+
+#content h1 {
+  text-align: center;
+
+  font-family: 'Courier New', Courier, sans-serif;
+  font-weight: normal;
+
+  margin-top: 96px;
+}
+
+table, th {
+  /*border: 1px solid black;*/
+  text-align: left;
+  font-weight: normal;
+}
+
+th {
+  padding-top: 50px;
+}
+
+.about {
+  max-width: 40%;
+}
