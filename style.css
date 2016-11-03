@@ -97,6 +97,11 @@ th {
   max-width: 40%;
 }
 
+.about a {
+  text-decoration: none;
+  color: blue;
+}
+
 .period {
   padding-right: 25px;
   white-space: nowrap;
