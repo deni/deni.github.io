@@ -34,9 +34,9 @@
 		video.addEventListener('loadedmetadata', function() {
 			var startTime = 1570815649091
 			var difference = Date.now() - startTime
-			var videoTime = (difference / 1000) % video.duration
+			var currentTime = (difference / 1000) % video.duration
 
-			video.currentTime = videoTime
+			video.currentTime = currentTime
 
 			video.play()
 		});
