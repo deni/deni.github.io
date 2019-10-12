@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+
+<head>
+	<title>
+		Never Gonna Give You Up
+	</title>
+
+	<meta charset="utf-8" />
+
+	<style>
+	body {
+		background-color: black;
+	}
+
+	video {
+		position: fixed;
+		height: 100vh;
+		width: 100vw;
+		top: 0px;
+		right: 0px;
+		left: 0px;
+		bottom: 0px;
+	}
+	</style>
+</head>
+<body>
+	<video id="rick" preload="metadata" loop>
+		<source src="../nggyu.mp4" type="video/mp4" />
+	</video>
+
+	<script>
+		var video = document.getElementById("rick")
+		var startTime = 1570815649091
+
+		video.addEventListener('loadedmetadata', function() {
+			var difference = Date.now() - startTime
+			var currentTime = (difference / 1000) % video.duration
+
+			video.currentTime = currentTime
+
+			video.play()
+
+			video.addEventListener('play', function() {
+				console.log("Playing.")
+
+				window.setTimeout(sync, 2000)
+			})
+		})
+
+		function restorePlaybackRate() {
+			console.log("Restoring normal speed and waiting 10 seconds.")
+
+			video.playbackRate = 1.0
+
+			window.setTimeout(sync, 10000)
+		}
+
+		function sync() {
+			console.log("Syncing.")
+
+			var difference = Date.now() - startTime
+			var currentTime = (difference / 1000) % video.duration
+
+			console.log("Video should be " + currentTime)
+			console.log("Video is " + video.currentTime)
+
+			var offset = currentTime - video.currentTime
+
+			console.log("Offset is " + offset)
+
+			if (offset > 0.1) {
+				console.log("Speeding up.")
+
+				video.playbackRate = 1.1
+
+				console.log("Waiting " + Math.round(offset * 10))
+
+				window.setTimeout(restorePlaybackRate, Math.round(offset * 10) * 1000)
+			}
+			else if (offset < -0.1) {
+				console.log("Slowing down.")
+
+				video.playbackRate = 0.9;
+				window.setTimeout(restorePlaybackRate, Math.round(offset * 10) * 1000)
+			}
+			else {
+				console.log("Timing good. Waiting 10 seconds.")
+
+				window.setTimeout(sync, 10000)
+			}
+		}
+	</script>
+</body>
