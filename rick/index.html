@@ -32,6 +32,8 @@
 		var video = document.getElementById("rick")
 		var startTime = 1570815649091
 
+		var timeout
+
 		video.addEventListener('loadedmetadata', function() {
 			video.play()
 
@@ -40,7 +42,8 @@
 			video.addEventListener('play', function() {
 				console.log("Playing.")
 
-				window.setTimeout(sync, 2000)
+				window.clearTimeout(window.timout);
+				window.timeout = window.setTimeout(sync, 2000)
 			})
 		})
 
@@ -56,7 +59,7 @@
 
 			video.playbackRate = 1.0
 
-			window.setTimeout(sync, 10000)
+			window.timeout = window.setTimeout(sync, 10000)
 		}
 
 		function sync() {
@@ -78,7 +81,7 @@
 
 				jumpToLocation()
 
-				window.setTimeout(sync, 2000)
+				window.timeout = window.setTimeout(sync, 2000)
 			}
 			else if (offset > 0.1) {
 				console.log("Speeding up a lot.")
@@ -89,7 +92,7 @@
 
 				console.log("Waiting " + (delay / 1000))
 
-				window.setTimeout(restorePlaybackRate, delay)
+				window.timeout = window.setTimeout(restorePlaybackRate, delay)
 			}
 			else if (offset < -0.1) {
 				console.log("Slowing down a lot.")
@@ -100,7 +103,7 @@
 
 				console.log("Waiting " + (delay / 1000))
 
-				window.setTimeout(restorePlaybackRate, delay)
+				window.timeout = window.setTimeout(restorePlaybackRate, delay)
 			}
 			else if (offset > 0.01) {
 				console.log("Speeding up a little bit.")
@@ -111,7 +114,7 @@
 
 				console.log("Waiting " + (delay / 1000))
 
-				window.setTimeout(restorePlaybackRate, delay)
+				window.timeout = window.setTimeout(restorePlaybackRate, delay)
 			}
 			else if (offset < -0.01) {
 				console.log("Slowing down a little bit.")
@@ -122,12 +125,12 @@
 
 				console.log("Waiting " + (delay / 1000))
 
-				window.setTimeout(restorePlaybackRate, delay)
+				window.timeout = window.setTimeout(restorePlaybackRate, delay)
 			}
 			else {
 				console.log("Timing good. Waiting 10 seconds.")
 
-				window.setTimeout(sync, 10000)
+				window.timeout = window.setTimeout(sync, 10000)
 			}
 		}
 	</script>
