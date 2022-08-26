@@ -86,19 +86,12 @@ body {
 
 .content {
 	background-color: #121212;
-
-	display: flex;
-	justify-content: center;
 }
 
 .content div {
 	color: rgba(255, 255, 255, 0.87);
-
-	padding-top: 5vh;
-	padding-left: 5vw;
-	padding-right: 5vw;
-	padding-bottom: 5vh;
-
+	margin: 0 auto;
+	padding: 5vh 5vw;
 	max-width: 50rem;
 }
 
