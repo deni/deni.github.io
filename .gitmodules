@@ -1,0 +1,3 @@
+[submodule "rick"]
+	path = rick
+	url = git@github.com:deni/rick-sync.git
